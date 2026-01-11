@@ -152,14 +152,14 @@ const Contact = () => {
               className="h-[400px] lg:h-full min-h-[400px] rounded-2xl overflow-hidden border border-border"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.0847095553853!2d78.52835331487783!3d17.35693798807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99016de9d8e7%3A0x8c3e5f3f8f2f3f3f!2sKarmanghat%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.4076882453014!2d78.53191497493368!3d17.344104683535736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99000b813643%3A0xff86a4fcbab19ed8!2sSri%20Dazzling%20Detailers!5e0!3m2!1sen!2sin!4v1768130478431!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale"
+                className="grayscale hover:grayscale-0 transition-all duration-500"
               />
             </motion.div>
           </div>

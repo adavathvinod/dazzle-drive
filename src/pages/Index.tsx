@@ -7,6 +7,7 @@ import ServiceCard from '@/components/ServiceCard';
 import Footer from '@/components/Footer';
 import FloatingCTAs from '@/components/FloatingCTAs';
 import MusicPlayer from '@/components/MusicPlayer';
+import PriceEstimator from '@/components/PriceEstimator';
 
 const services = [
   {
@@ -208,6 +209,32 @@ const Index = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Price Estimator Section */}
+      <section className="py-20 bg-card/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block px-4 py-1 rounded-full bg-accent/10 text-accent font-display text-sm font-semibold tracking-wider mb-4">
+              INSTANT QUOTE
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-black mb-4">
+              Get Your <span className="gradient-text-gold-cyan">Price</span> Estimate
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Select your vehicle type and services to get an instant price estimate.
+            </p>
+          </motion.div>
+
+          <div className="max-w-3xl mx-auto">
+            <PriceEstimator />
           </div>
         </div>
       </section>
