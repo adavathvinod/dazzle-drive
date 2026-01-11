@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,23 +36,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <motion.div
-            whileHover={{ rotate: 180 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <Sparkles className="w-8 h-8 text-primary" />
-            <div className="absolute inset-0 blur-lg bg-primary/30" />
-          </motion.div>
-          <div className="flex flex-col">
-            <span className="font-display text-lg font-bold gradient-text-gold tracking-wider">
-              SRI DAZZLING
-            </span>
-            <span className="font-display text-xs font-medium text-accent tracking-[0.3em]">
-              DETAILERS
-            </span>
-          </div>
+        <Link to="/">
+          <Logo size="sm" />
         </Link>
 
         {/* Desktop Navigation */}
