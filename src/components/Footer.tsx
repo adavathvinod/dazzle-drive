@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Sparkles, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   const quickLinks = [
@@ -30,18 +30,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <motion.div whileHover={{ rotate: 180 }} transition={{ duration: 0.5 }}>
-                <Sparkles className="w-8 h-8 text-primary" />
-              </motion.div>
-              <div className="flex flex-col">
-                <span className="font-display text-lg font-bold gradient-text-gold tracking-wider">
-                  SRI DAZZLING
-                </span>
-                <span className="font-display text-xs font-medium text-accent tracking-[0.3em]">
-                  DETAILERS
-                </span>
-              </div>
+            <Link to="/" className="mb-6 inline-block">
+              <Logo size="md" />
             </Link>
             <p className="text-muted-foreground text-sm mb-6">
               Premium auto detailing and protection services in Hyderabad. We bring the dazzling finish your car deserves.

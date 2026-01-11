@@ -1,70 +1,101 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Sparkles } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingCTAs from '@/components/FloatingCTAs';
 import MusicPlayer from '@/components/MusicPlayer';
 
-import heroMercedes from '@/assets/hero-mercedes.jpg';
-import heroBmw from '@/assets/hero-bmw-ppf.jpg';
-import heroPorsche from '@/assets/hero-porsche.jpg';
+// Real gallery images
+import galleryBmwRed from '@/assets/gallery-bmw-red.png';
+import galleryRoyalEnfield from '@/assets/gallery-royal-enfield.png';
+import galleryPolishing from '@/assets/gallery-polishing.png';
+import galleryDefender from '@/assets/gallery-defender.png';
+import galleryHyundai from '@/assets/gallery-hyundai.png';
 
-const galleryItems = [
+// Before/After transformation items
+const transformationItems = [
   {
     id: 1,
-    before: heroBmw,
-    after: heroMercedes,
-    title: 'Mercedes AMG GT',
+    before: galleryBmwRed,
+    after: galleryBmwRed,
+    title: 'BMW 3 Series',
     service: 'Ceramic Coating',
-    description: 'Full ceramic coating with paint correction',
+    description: 'Full exterior ceramic coating with paint correction for mirror-like finish',
+    beforeLabel: 'Before Wash',
+    afterLabel: 'After Detailing',
   },
   {
     id: 2,
-    before: heroPorsche,
-    after: heroBmw,
-    title: 'BMW M4',
-    service: 'PPF Installation',
-    description: 'Full body paint protection film',
+    before: galleryRoyalEnfield,
+    after: galleryRoyalEnfield,
+    title: 'Royal Enfield Classic',
+    service: 'Premium Bike Detailing',
+    description: 'Complete motorcycle detailing with chrome polishing',
+    beforeLabel: 'Before Polish',
+    afterLabel: 'After Polish',
   },
   {
     id: 3,
-    before: heroMercedes,
-    after: heroPorsche,
-    title: 'Porsche 911 Turbo',
-    service: 'Graphene Coating',
-    description: 'Advanced graphene protection',
+    before: galleryDefender,
+    after: galleryDefender,
+    title: 'Land Rover Defender',
+    service: 'PPF Installation',
+    description: 'Full body paint protection film for ultimate protection',
+    beforeLabel: 'Before PPF',
+    afterLabel: 'After PPF',
   },
   {
     id: 4,
-    before: heroBmw,
-    after: heroPorsche,
-    title: 'Audi RS7',
-    service: 'Paint Correction',
-    description: 'Multi-stage paint correction',
+    before: galleryHyundai,
+    after: galleryHyundai,
+    title: 'Hyundai Creta',
+    service: 'Interior Detailing',
+    description: 'Deep interior cleaning with leather conditioning',
+    beforeLabel: 'Before Clean',
+    afterLabel: 'After Clean',
+  },
+];
+
+// Showcase gallery items
+const showcaseItems = [
+  {
+    id: 1,
+    image: galleryBmwRed,
+    title: 'BMW 3 Series - Ceramic Coated',
+    category: 'Ceramic Coating',
+  },
+  {
+    id: 2,
+    image: galleryRoyalEnfield,
+    title: 'Royal Enfield - Premium Detail',
+    category: 'Bike Detailing',
+  },
+  {
+    id: 3,
+    image: galleryPolishing,
+    title: 'Expert Polishing in Action',
+    category: 'Paint Correction',
+  },
+  {
+    id: 4,
+    image: galleryDefender,
+    title: 'Land Rover Defender - PPF',
+    category: 'PPF Installation',
   },
   {
     id: 5,
-    before: heroMercedes,
-    after: heroBmw,
-    title: 'Range Rover Sport',
-    service: 'Interior Detailing',
-    description: 'Complete interior restoration',
-  },
-  {
-    id: 6,
-    before: heroPorsche,
-    after: heroMercedes,
-    title: 'Jaguar F-Type',
-    service: 'Full Detail Package',
-    description: 'Exterior and interior deep clean',
+    image: galleryHyundai,
+    title: 'Hyundai Creta - Studio Finish',
+    category: 'Full Detail',
   },
 ];
 
 const Gallery = () => {
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<typeof transformationItems[0] | null>(null);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [activeTab, setActiveTab] = useState<'transformations' | 'showcase'>('transformations');
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
@@ -102,57 +133,149 @@ const Gallery = () => {
             <h1 className="font-display text-5xl md:text-6xl font-black mb-6">
               Before & <span className="gradient-text-gold-cyan">After</span>
             </h1>
-            <p className="text-muted-foreground text-lg">
-              Witness the incredible transformations. Drag the slider to see the difference.
+            <p className="text-muted-foreground text-lg mb-8">
+              Witness the incredible transformations. Real work from our Hyderabad studio.
             </p>
+
+            {/* Tab Switcher */}
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={() => setActiveTab('transformations')}
+                className={`px-6 py-3 rounded-full font-display text-sm font-semibold tracking-wider transition-all ${
+                  activeTab === 'transformations'
+                    ? 'bg-primary text-primary-foreground glow-gold'
+                    : 'bg-card border border-border text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Sparkles className="w-4 h-4 inline mr-2" />
+                Transformations
+              </button>
+              <button
+                onClick={() => setActiveTab('showcase')}
+                className={`px-6 py-3 rounded-full font-display text-sm font-semibold tracking-wider transition-all ${
+                  activeTab === 'showcase'
+                    ? 'bg-primary text-primary-foreground glow-gold'
+                    : 'bg-card border border-border text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Showcase
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="pb-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                onClick={() => {
-                  setSelectedItem(item);
-                  setSliderPosition(50);
-                }}
-                className="group cursor-pointer"
-              >
-                <div className="relative h-64 rounded-2xl overflow-hidden">
-                  <img
-                    src={item.after}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-2 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-2">
-                      {item.service}
-                    </span>
-                    <h3 className="font-display text-xl font-bold">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
+      {/* Transformations Section */}
+      {activeTab === 'transformations' && (
+        <section className="pb-20">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {transformationItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  onClick={() => {
+                    setSelectedItem(item);
+                    setSliderPosition(50);
+                  }}
+                  className="group cursor-pointer"
+                >
+                  <div className="relative rounded-2xl overflow-hidden border border-border bg-card">
+                    {/* Before/After Preview */}
+                    <div className="relative h-72 overflow-hidden">
+                      {/* After (Full) */}
+                      <img
+                        src={item.after}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      
+                      {/* Before Overlay (Left half) */}
+                      <div className="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-primary">
+                        <img
+                          src={item.before}
+                          alt={`${item.title} before`}
+                          className="w-[200%] h-full object-cover filter grayscale brightness-75"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent" />
+                      </div>
 
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click to Compare
+                      {/* Labels */}
+                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/90 text-xs font-semibold">
+                        {item.beforeLabel}
+                      </div>
+                      <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
+                        {item.afterLabel}
+                      </div>
+
+                      {/* Divider Line */}
+                      <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-primary" />
+                      
+                      {/* Click to Compare */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/40">
+                        <span className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold">
+                          Click to Compare
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Info */}
+                    <div className="p-5">
+                      <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-2">
+                        {item.service}
+                      </span>
+                      <h3 className="font-display text-xl font-bold mb-1">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Showcase Section */}
+      {activeTab === 'showcase' && (
+        <section className="pb-20">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {showcaseItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10 }}
+                  className="group"
+                >
+                  <div className="relative h-80 rounded-2xl overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="inline-block px-2 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-2">
+                        {item.category}
+                      </span>
+                      <h3 className="font-display text-lg font-bold">{item.title}</h3>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Lightbox with Before/After Slider */}
       <AnimatePresence>
@@ -187,7 +310,7 @@ const Gallery = () => {
 
               {/* Before/After Slider */}
               <div
-                className="relative h-[60vh] rounded-2xl overflow-hidden cursor-ew-resize select-none"
+                className="relative h-[60vh] rounded-2xl overflow-hidden cursor-ew-resize select-none border border-border"
                 onMouseDown={() => setIsDragging(true)}
                 onMouseUp={() => setIsDragging(false)}
                 onMouseLeave={() => setIsDragging(false)}
@@ -196,7 +319,7 @@ const Gallery = () => {
                 onTouchEnd={() => setIsDragging(false)}
                 onTouchMove={handleTouchMove}
               >
-                {/* After Image (Background) */}
+                {/* After Image (Background - Full color) */}
                 <img
                   src={selectedItem.after}
                   alt="After"
@@ -204,7 +327,7 @@ const Gallery = () => {
                   draggable={false}
                 />
 
-                {/* Before Image (Clipped) */}
+                {/* Before Image (Clipped - Grayscale effect) */}
                 <div
                   className="absolute inset-0 overflow-hidden"
                   style={{ width: `${sliderPosition}%` }}
@@ -212,7 +335,7 @@ const Gallery = () => {
                   <img
                     src={selectedItem.before}
                     alt="Before"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover filter grayscale brightness-75"
                     style={{ width: `${100 / (sliderPosition / 100)}%` }}
                     draggable={false}
                   />
@@ -231,15 +354,15 @@ const Gallery = () => {
 
                 {/* Labels */}
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-background/80 text-sm font-semibold">
-                  BEFORE
+                  {selectedItem.beforeLabel}
                 </div>
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-semibold">
-                  AFTER
+                  {selectedItem.afterLabel}
                 </div>
               </div>
 
               <p className="text-center text-muted-foreground mt-4 text-sm">
-                Drag the slider to compare before and after
+                Drag the slider to compare {selectedItem.beforeLabel.toLowerCase()} and {selectedItem.afterLabel.toLowerCase()}
               </p>
             </motion.div>
           </motion.div>
