@@ -142,12 +142,12 @@ const Logo = ({ size = 'md', showText = true }: LogoProps) => {
         />
       </svg>
 
-      {/* Text - DAZZLING DETAILERS */}
+      {/* Text - SRI DAZZLING DETAILERS */}
       {showText && (
         <span
-          className={`font-display ${sizes[size].text} font-black tracking-[0.3em] text-foreground uppercase`}
+          className={`font-display ${sizes[size].text} font-black tracking-[0.25em] text-foreground uppercase`}
         >
-          DAZZLING DETAILERS
+          SRI DAZZLING DETAILERS
         </span>
       )}
     </motion.div>
