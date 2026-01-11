@@ -45,11 +45,39 @@ const Booking = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
+    // Build WhatsApp message
+    const selectedService = services.find(s => s.id === formData.service);
+    const message = `🚗 *New Booking Request*
+
+*Customer Details:*
+• Name: ${formData.name}
+• Phone: ${formData.phone}
+• Email: ${formData.email || 'Not provided'}
+
+*Vehicle Details:*
+• Type: ${formData.carType}
+• Brand: ${formData.carBrand}
+• Model: ${formData.carModel}
+
+*Service:* ${selectedService?.name || 'Not selected'}
+*Price:* ${selectedService?.price || 'N/A'}
+
+*Appointment:*
+• Date: ${formData.date}
+• Time: ${formData.time}
+
+*Additional Notes:*
+${formData.notes || 'None'}
+
+Please confirm my appointment. Thank you!`;
+
+    const whatsappUrl = `https://wa.me/918019130798?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
     setIsSubmitted(true);
     toast({
-      title: "Booking Request Sent!",
-      description: "We'll contact you shortly to confirm your appointment.",
+      title: "Redirecting to WhatsApp!",
+      description: "Please send the message to confirm your booking.",
     });
   };
 
