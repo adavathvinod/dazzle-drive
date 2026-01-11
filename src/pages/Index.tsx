@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import FloatingCTAs from '@/components/FloatingCTAs';
 import MusicPlayer from '@/components/MusicPlayer';
 import PriceEstimator from '@/components/PriceEstimator';
+import VideoTestimonials from '@/components/VideoTestimonials';
 
 const services = [
   {
@@ -212,6 +213,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Testimonials */}
+      <VideoTestimonials />
 
       {/* Price Estimator Section */}
       <section className="py-20 bg-card/30">
