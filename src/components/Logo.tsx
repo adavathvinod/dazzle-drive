@@ -7,9 +7,9 @@ interface LogoProps {
 
 const Logo = ({ size = 'md', showText = true }: LogoProps) => {
   const sizes = {
-    sm: { icon: 'w-24 h-12', text: 'text-[11px]', gap: 'gap-1' },
-    md: { icon: 'w-32 h-14', text: 'text-sm', gap: 'gap-1.5' },
-    lg: { icon: 'w-48 h-20', text: 'text-lg', gap: 'gap-2' },
+    sm: { icon: 'w-28 h-14', text: 'text-xs', gap: 'gap-0.5' },
+    md: { icon: 'w-40 h-18', text: 'text-sm', gap: 'gap-1' },
+    lg: { icon: 'w-56 h-24', text: 'text-xl', gap: 'gap-2' },
   };
 
   return (
@@ -18,127 +18,135 @@ const Logo = ({ size = 'md', showText = true }: LogoProps) => {
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Exact Sports Car Silhouette - Matching the signboard */}
+      {/* Exact Sports Car Silhouette - Matching the signboard exactly */}
       <div className="relative">
         <svg
-          viewBox="0 0 200 70"
+          viewBox="0 0 280 80"
           className={sizes[size].icon}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Solid red fill for the car shape */}
           <defs>
-            {/* Red gradient matching the signboard */}
-            <linearGradient id="carRedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#DC2626" />
-              <stop offset="50%" stopColor="#EF4444" />
-              <stop offset="100%" stopColor="#F97316" />
+            <linearGradient id="carRedSolid" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#E53935" />
+              <stop offset="100%" stopColor="#D32F2F" />
             </linearGradient>
-            
-            {/* Glow effect */}
-            <filter id="redGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="1.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
           </defs>
 
-          {/* Main Car Body - Sleek flowing curves */}
+          {/* Main car body - thick solid red curves matching signboard */}
+          {/* Rear section with D lettermark */}
           <path
-            d="M15 48 
-               C20 48, 25 46, 30 42
-               C35 38, 45 32, 55 28
-               C65 24, 80 20, 95 18
-               C110 16, 125 16, 140 18
-               C155 20, 165 24, 175 30
-               C180 34, 185 38, 188 42
-               C190 45, 192 47, 195 48"
-            stroke="url(#carRedGradient)"
-            strokeWidth="3"
+            d="M25 55
+               C25 55, 25 40, 35 35
+               C45 30, 50 35, 55 40
+               C60 45, 60 55, 60 55"
+            stroke="#E53935"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            filter="url(#redGlow)"
+          />
+          
+          {/* D horizontal bar */}
+          <path
+            d="M28 45 L55 45"
+            stroke="#E53935"
+            strokeWidth="6"
+            strokeLinecap="round"
+            fill="none"
           />
 
-          {/* Roof Line - Distinctive curve */}
+          {/* Lower body line - rear to front */}
           <path
-            d="M55 28
-               C60 22, 70 16, 85 12
-               C100 8, 120 8, 135 12
-               C145 15, 155 20, 165 28"
-            stroke="url(#carRedGradient)"
-            strokeWidth="2.5"
+            d="M55 55
+               C70 55, 85 52, 100 50
+               C130 46, 160 44, 190 44
+               C210 44, 230 46, 250 52
+               L260 55"
+            stroke="#E53935"
+            strokeWidth="7"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            filter="url(#redGlow)"
           />
 
-          {/* Top flowing line */}
+          {/* Roof swoosh - the distinctive curved roof line */}
           <path
-            d="M75 14
-               C85 10, 100 8, 115 8
-               C130 8, 145 12, 155 18"
-            stroke="url(#carRedGradient)"
-            strokeWidth="2"
+            d="M60 38
+               C75 28, 95 18, 120 12
+               C145 6, 175 6, 200 12
+               C215 16, 225 22, 235 30"
+            stroke="#E53935"
+            strokeWidth="8"
             strokeLinecap="round"
             strokeLinejoin="round"
             fill="none"
-            filter="url(#redGlow)"
           />
 
-          {/* Front hood line */}
+          {/* Upper roof accent line */}
           <path
-            d="M165 28 C175 32, 182 38, 188 44"
-            stroke="url(#carRedGradient)"
-            strokeWidth="2"
+            d="M85 18
+               C105 10, 135 6, 165 6
+               C190 6, 210 10, 225 18"
+            stroke="#E53935"
+            strokeWidth="6"
             strokeLinecap="round"
+            strokeLinejoin="round"
             fill="none"
-            filter="url(#redGlow)"
           />
 
-          {/* Rear trunk line */}
+          {/* Front hood swooping down */}
           <path
-            d="M30 42 C25 44, 20 46, 18 47"
-            stroke="url(#carRedGradient)"
-            strokeWidth="2"
+            d="M235 30
+               C245 38, 255 48, 260 55"
+            stroke="#E53935"
+            strokeWidth="7"
             strokeLinecap="round"
+            strokeLinejoin="round"
             fill="none"
-            filter="url(#redGlow)"
           />
 
-          {/* Front wheel arch hint */}
+          {/* Rear wheel arch curve */}
           <path
-            d="M160 45 C165 50, 175 52, 180 48"
-            stroke="url(#carRedGradient)"
-            strokeWidth="1.5"
+            d="M70 55
+               C72 62, 85 68, 100 62
+               C108 58, 110 55, 110 55"
+            stroke="#E53935"
+            strokeWidth="6"
             strokeLinecap="round"
+            strokeLinejoin="round"
             fill="none"
-            opacity="0.7"
           />
 
-          {/* Rear wheel arch hint */}
+          {/* Front wheel arch curve */}
           <path
-            d="M35 45 C40 50, 50 52, 55 48"
-            stroke="url(#carRedGradient)"
-            strokeWidth="1.5"
+            d="M200 55
+               C202 62, 215 68, 230 62
+               C238 58, 240 55, 240 55"
+            stroke="#E53935"
+            strokeWidth="6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+
+          {/* Small accent line at rear */}
+          <path
+            d="M35 52 L45 48"
+            stroke="#E53935"
+            strokeWidth="4"
             strokeLinecap="round"
             fill="none"
-            opacity="0.7"
           />
         </svg>
-
-        {/* Ambient glow */}
-        <div className="absolute inset-0 blur-xl bg-red-500/20 -z-10" />
       </div>
 
-      {/* Text Logo - Matching the signboard style */}
+      {/* Text Logo - Clean white text matching signboard */}
       {showText && (
         <div className="flex items-center justify-center">
-          <span className={`font-display ${sizes[size].text} font-black tracking-[0.2em] text-foreground`}>
-            DAZZLING DETAILERS
+          <span className={`font-display ${sizes[size].text} font-bold tracking-[0.25em] text-foreground uppercase`}>
+            Dazzling Detailers
           </span>
         </div>
       )}
