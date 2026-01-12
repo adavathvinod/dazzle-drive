@@ -6,6 +6,14 @@ import Footer from '@/components/Footer';
 import FloatingCTAs from '@/components/FloatingCTAs';
 import MusicPlayer from '@/components/MusicPlayer';
 
+// Service images
+import servicePpf from '@/assets/service-ppf.jpg';
+import serviceCeramic from '@/assets/service-ceramic.jpg';
+import serviceGraphene from '@/assets/service-graphene.jpg';
+import serviceInterior from '@/assets/service-interior.jpg';
+import servicePaintCorrection from '@/assets/service-paint-correction.jpg';
+import serviceBodywork from '@/assets/service-bodywork.jpg';
+
 const services = [
   {
     id: 'ppf',
@@ -16,6 +24,7 @@ const services = [
     price: 'Starting ₹25,000',
     duration: '2-3 Days',
     warranty: '10 Years',
+    image: servicePpf,
     features: [
       'Self-healing technology',
       'Crystal clear finish',
@@ -34,6 +43,7 @@ const services = [
     price: 'Starting ₹12,000',
     duration: '1-2 Days',
     warranty: '5 Years',
+    image: serviceCeramic,
     features: [
       '9H hardness rating',
       'Hydrophobic properties',
@@ -52,6 +62,7 @@ const services = [
     price: 'Starting ₹18,000',
     duration: '2 Days',
     warranty: '7 Years',
+    image: serviceGraphene,
     features: [
       'Superior heat dissipation',
       'Anti-static properties',
@@ -70,6 +81,7 @@ const services = [
     price: 'Starting ₹3,500',
     duration: '4-6 Hours',
     warranty: '30 Days',
+    image: serviceInterior,
     features: [
       'Deep vacuum extraction',
       'Steam cleaning',
@@ -88,6 +100,7 @@ const services = [
     price: 'Starting ₹8,000',
     duration: '1-2 Days',
     warranty: '6 Months',
+    image: servicePaintCorrection,
     features: [
       'Swirl mark removal',
       'Scratch elimination',
@@ -106,6 +119,7 @@ const services = [
     price: 'Starting ₹5,000',
     duration: 'Varies',
     warranty: '1 Year',
+    image: serviceBodywork,
     features: [
       'Paintless dent removal',
       'Panel replacement',
@@ -163,28 +177,28 @@ const Services = () => {
               >
                 {/* Visual */}
                 <div className="flex-1 w-full">
-                  <div className="relative p-8 rounded-3xl bg-card border border-border group hover:border-primary/50 transition-all duration-500">
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative rounded-3xl overflow-hidden group">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-72 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                     
-                    <div className="relative flex items-center justify-center h-64">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-3xl" />
-                      </div>
-                      <service.icon className="w-32 h-32 text-primary relative z-10 group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    
-                    <div className="flex justify-between items-center pt-6 border-t border-border">
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">Duration</p>
-                        <p className="font-display font-bold text-foreground">{service.duration}</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">Warranty</p>
-                        <p className="font-display font-bold text-accent">{service.warranty}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">Price</p>
-                        <p className="font-display font-bold text-primary">{service.price}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-xs text-muted-foreground uppercase tracking-wider">Duration</p>
+                          <p className="font-display font-bold text-foreground">{service.duration}</p>
+                        </div>
+                        <div className="text-center">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wider">Warranty</p>
+                          <p className="font-display font-bold text-accent">{service.warranty}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xs text-muted-foreground uppercase tracking-wider">Price</p>
+                          <p className="font-display font-bold text-primary">{service.price}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
