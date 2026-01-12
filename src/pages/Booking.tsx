@@ -71,7 +71,7 @@ ${formData.notes || 'None'}
 
 Please confirm my appointment. Thank you!`;
 
-    const whatsappUrl = `https://wa.me/918019130798?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919666665968?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     setIsSubmitted(true);

@@ -6,14 +6,14 @@ const FloatingCTAs = () => {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      href: 'https://wa.me/918019130798',
+      href: 'https://wa.me/919666665968',
       bgClass: 'bg-[#25D366]',
       hoverClass: 'hover:bg-[#128C7E]',
     },
     {
       icon: Phone,
       label: 'Call',
-      href: 'tel:+918019130798',
+      href: 'tel:+919666665968',
       bgClass: 'bg-primary',
       hoverClass: 'hover:bg-gold-dark',
     },
