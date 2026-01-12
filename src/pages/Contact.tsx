@@ -94,7 +94,7 @@ const Contact = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                href="tel:+918019130798"
+                href="tel:+919666665968"
                 className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0 group-hover:glow-cyan transition-all">
@@ -102,7 +102,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold mb-1">Call Us</h3>
-                  <p className="text-muted-foreground text-sm">+91 80191 30798</p>
+                  <p className="text-muted-foreground text-sm">+91 96666 65968</p>
                   <span className="text-accent text-sm font-semibold mt-2 inline-block">
                     Tap to Call →
                   </span>

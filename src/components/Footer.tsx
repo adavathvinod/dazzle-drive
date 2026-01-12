@@ -94,8 +94,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+918019130798" className="text-muted-foreground text-sm hover:text-primary transition-colors">
-                  +91 80191 30798
+                <a href="tel:+919666665968" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                  +91 96666 65968
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -137,7 +137,7 @@ const Footer = () => {
               Facebook
             </a>
             <a
-              href="https://wa.me/918019130798"
+              href="https://wa.me/919666665968"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
